@@ -41,18 +41,6 @@ public class Facade {
 
 	}
 
-	public void operation7() {
-
-	}
-
-	public void operation8() {
-
-	}
-
-	public void operation9() {
-
-	}
-
 	public void createUser(UserInfoItem userinfoitem) {
 
 	}
