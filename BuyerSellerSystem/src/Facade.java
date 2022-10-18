@@ -45,7 +45,7 @@ public class Facade {
 
 	}
 
-	public void AttachProductTo User() {
+	public void AttachProductToUser() {
 
 	}
 
