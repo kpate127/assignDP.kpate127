@@ -2,8 +2,19 @@ package System;
 
 public class Product {
 
-	private ClassProductList classProductList;
+	private  String name;
+	private  String type;
 
-	private Trading trading;
+	public Product(String name, String type){
+		this.name = name;
+		this.type = type;
+	}
 
+	public String fetchName() {
+		return name;
+	}
+
+	public String fetchType() {
+		return type;
+	}
 }

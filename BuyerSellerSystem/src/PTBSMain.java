@@ -42,5 +42,31 @@ public class PTBSMain {
 
         ProductMenu productMenu2 = productMenuFactory.fetchMenu("MEAT");
         productMenu2.showMenu();
+
+        PersonFactory personFactory = new PersonFactory();
+        Person person1 = personFactory.fetchMenu("Buyers");
+        Person person2 = personFactory.fetchMenu("Sellers");
+        person1.showMenu();
+        person2.showMenu();
+
+        System.out.println("Bridge Pattern is implemented here");
+
+        Person buyer = new Buyer("Vivek", "1111");
+        Person seller = new Seller("Bhrugu", "2222");
+
+        buyer.showMenu();
+        seller.showMenu();
+
+        System.out.println("Iterator Method is implemented here");
+
+        ClassProductList classProductList = new ClassProductList();
+
+        for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
+            Product product = (Product) litr.next();
+            System.out.println("Product Name : " + product.fetchName()+ "   Product Type :" + product.fetchType());
+        }
+
+
+        System.out.println("Iterator Method finishes");
     }
 }

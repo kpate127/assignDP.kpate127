@@ -4,6 +4,26 @@ import java.util.Scanner;
 
 public class Seller extends Person {
 
+	private  String Username;
+	private  String Password;
+
+	public  Seller(String Username, String Password)
+	{
+		super(null);
+		this.Username = Username;
+		this.Password = Password;
+	}
+
+	public void showMenu(){
+		System.out.println("Menu For Seller Will Be Printer Here");
+
+	}
+
+	public ProductMenu createProductMenu(){
+
+		return null;
+	}
+
 //	MeatProductMenu meatMenu = new MeatProductMenu();
 //	ProduceProductMenu produceMenu = new ProduceProductMenu();
 //	public void showMenu() {

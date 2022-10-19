@@ -1,11 +1,47 @@
 package System;
 
-public class OfferingList {
+public class OfferingList extends ArrayList {
 
-	private Trading trading;
+	public Offering offerings_Names[] = {new Offering("Beef","Meat"), new Offering("Fish","Meat"),
+			new Offering("Ginger","Produce"), new Offering("Tomato","Produce"), };
 
-	private Offering[] offering;
+	public ListIterator fetchListIterator()
+	{
+		return new OfferingIterator();
+	}
 
-	private OfferingIterator offeringIterator;
+	public class OfferingIterator implements ListIterator {
 
+		int pos;
+
+		public boolean hasNext() {
+
+			if (pos < offerings_Names.length) {
+				return true;
+			}
+			return false;
+		}
+
+		public Offering next() {
+
+			if (this.hasNext()) {
+				return offerings_Names[pos++];
+			}
+			return null;
+		}
+
+		public void MoveToHead() {
+
+		}
+
+		public void Remove() {
+
+		}
+
+//	private Trading trading;
+//
+//	private Offering[] Offering;
+//
+//	private OfferingIterator OfferingIterator;
+	}
 }

@@ -2,15 +2,16 @@ package System;
 
 import java.io.IOException;
 
-public class Person {
+public abstract class Person {
 
 	private ProductMenu theProductMenu;
 
-	private ProductMenu productMenu;
-
-	public void showMenu() {
-
+	public Person(ProductMenu theProductMenu)
+	{
+		this.theProductMenu = theProductMenu;
 	}
+
+	public abstract void showMenu();
 
 	public void showAddButton() {
 
@@ -28,8 +29,6 @@ public class Person {
 
 	}
 
-	public ProductMenu createProductMenu()throws IOException {
-		return null;
-	}
+	public abstract ProductMenu createProductMenu();
 
 }
