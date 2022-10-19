@@ -1,3 +1,5 @@
+package System;
+
 public class Trading {
 
 	private Product product;

@@ -1,10 +1,12 @@
+package System;
+
 public class Buyer extends Person {
 
 	public void showMenu() {
 
 	}
 
-	public ProductMenu CreateProductMenu() {
+	public ProductMenu createProductMenu() {
 		return null;
 	}
 

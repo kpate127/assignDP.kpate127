@@ -1,8 +1,6 @@
-public class ReminderVisitor extends NodeVisitor {
+package System;
 
-	private Reminder m_Reminder;
-
-	private ClassProductList[] classProductList;
+public class NodeVisitor {
 
 	public void visitProduct(Product product) {
 

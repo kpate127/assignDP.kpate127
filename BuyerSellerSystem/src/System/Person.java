@@ -1,3 +1,7 @@
+package System;
+
+import java.io.IOException;
+
 public class Person {
 
 	private ProductMenu theProductMenu;
@@ -8,7 +12,7 @@ public class Person {
 
 	}
 
-	public void shoeAddButton() {
+	public void showAddButton() {
 
 	}
 
@@ -24,7 +28,7 @@ public class Person {
 
 	}
 
-	public ProductMenu CreateProductMenu() {
+	public ProductMenu createProductMenu()throws IOException {
 		return null;
 	}
 

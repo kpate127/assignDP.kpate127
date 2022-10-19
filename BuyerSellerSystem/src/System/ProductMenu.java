@@ -1,6 +1,7 @@
+package System;
+
 public interface ProductMenu {
 
-	private  Person person;
 
 	public abstract void showMenu();
 
