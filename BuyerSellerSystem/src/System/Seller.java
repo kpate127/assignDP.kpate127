@@ -7,6 +7,10 @@ public class Seller extends Person {
 	private  String Username;
 	private  String Password;
 
+	public Seller() {
+		super(null);
+	}
+
 	public  Seller(String Username, String Password)
 	{
 		super(null);
@@ -22,6 +26,14 @@ public class Seller extends Person {
 	public ProductMenu createProductMenu(){
 
 		return null;
+	}
+
+	public String getUsername() {
+		return this.Username;
+	}
+
+	public  String getPassword() {
+		return this.Password;
 	}
 
 //	MeatProductMenu meatMenu = new MeatProductMenu();

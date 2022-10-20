@@ -17,3 +17,5 @@ public class PersonFactory {
         return null;
     }
 }
+
+// File -> Handler (List B, List S) -> Facade (handler) -> handler.B

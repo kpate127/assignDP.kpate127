@@ -1,16 +1,18 @@
 package System;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Handler;
 
 
 public class Facade {
 
-	Map<String, String> buyer = new HashMap();
-	Map<String, String> seller = new HashMap();
+//	Map<String, String> buyer = new HashMap();
+//	Map<String, String> seller = new HashMap();
 
 	private int UserType;
 
@@ -22,35 +24,36 @@ public class Facade {
 
 	private Person thePerson;
 
+	private FileHandler handler;
+
+	public Facade(FileHandler handler) {
+		this.handler = handler;
+	}
+
 	public int login() throws IOException{
 
-		buyer.put("tutu", "1111");
-		buyer.put("mimi", "2222");
-		buyer.put("nana", "3333");
-		seller.put("pepe", "3333");
-
+		System.out.println("IN DA FACADE");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Username: ");
 		String userName = br.readLine();
-
-		if(buyer.containsKey(userName)) {
+		if(handler.buyer.containsKey(userName)) {
 			System.out.print("Password: ");
 			String password = br.readLine();
 			UserInfoItem user = new UserInfoItem(userName, password);
-			if(buyer.get(user.userName).equals(user.password)) {
-				System.out.println(user.userName + " Succefully Logged In as Buyer!");
+			if(handler.buyer.get(user.userName).equals(user.password)) {
+				System.out.println(userName + " Succefully Logged In as Buyer!");
 				return 0;
 			}
 			else {
 				System.out.println("Invalid User. Please try again");
 				return -1;
 			}
-		} else if(seller.containsKey(userName)) {
+		} else if(handler.seller.containsKey(userName)) {
 			System.out.print("Password: ");
 			String password = br.readLine();
 			UserInfoItem user = new UserInfoItem(userName, password);
-			if(seller.get(user.userName).equals(user.password)) {
-				System.out.println(user.userName + " Succefully Logged In as Seller!");
+			if(handler.seller.get(user.userName).equals(user.password)) {
+				System.out.println(userName + " Succefully Logged In as Seller!");
 				return 1;
 			} else {
 				System.out.println("Invalid User. Please try again!");

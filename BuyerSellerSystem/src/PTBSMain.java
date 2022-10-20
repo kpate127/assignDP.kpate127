@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.logging.Handler;
+
 import System.Facade;
 import System.Buyer;
 import System.Seller;
@@ -6,35 +8,33 @@ import System.*;
 public class PTBSMain {
     public static void main(String[] args) throws IOException {
 
-//        System.out.println("------------- MENU -----------------");
-//
-//        System.out.println("Press 1 for adding Buyer");
-//        System.out.println("Press 2 for adding Seller");
-//        System.out.println("Press 3 to View All Buyer ");
-//        System.out.println("Press 4 to View All Seller");
-//        System.out.println("Press 5 to Add Meat Product");
-//        System.out.println("Press 6 to Add Produce Product");
-//        System.out.println("Press 7 to View All Meat Product");
-//        System.out.println("Press 8 To View All Produce Product");
-//        System.out.println("Press 0 To Exit");
+        System.out.println("Facade Pattern is implemented here");
 
-//        Facade facade = new Facade();
-//        int userType = facade.login();
-//        while(userType == -1) {
-//            userType = facade.login();
-//        }
-//
-//        if (userType == 0) {
-//            Buyer buyer = new Buyer();
-//            buyer.showMenu();
-//            buyer.createProductMenu();
-//            buyer.showMenu();
-//        } else if (userType == 1) {
-//            Seller seller = new Seller();
-//            seller.showMenu();
-//            seller.createProductMenu();
-//            seller.showMenu();
-//        }
+        FileHandler handler = new FileHandler();
+        handler.addBuyerDetails("BuyerSellerSystem/resources/BuyerInfo.txt");
+        handler.addSellerDetails("BuyerSellerSystem/resources/SellerInfo.txt");
+        handler.showBuyers();
+        handler.showSeller();
+        Facade facade = new Facade(handler);
+        int userType = facade.login();
+        while(userType == -1) {
+            userType = facade.login();
+        }
+
+        if (userType == 0) {
+            Buyer buyer = new Buyer();
+            buyer.showMenu();
+            buyer.createProductMenu();
+        } else if (userType == 1) {
+            Seller seller = new Seller();
+            seller.showMenu();
+            seller.createProductMenu();
+        }
+
+
+        System.out.println("**********************************************");
+
+        System.out.println("Factory Pattern is implemented here");
 
         ProductMenuFactory productMenuFactory = new ProductMenuFactory();
         ProductMenu productMenu1 = productMenuFactory.fetchMenu("PRODUCE");
@@ -49,13 +49,17 @@ public class PTBSMain {
         person1.showMenu();
         person2.showMenu();
 
+
+        System.out.println("*********************************************");
+
         System.out.println("Bridge Pattern is implemented here");
 
-        Person buyer = new Buyer("Vivek", "1111");
-        Person seller = new Seller("Bhrugu", "2222");
+        ClassProductList productList = new ClassProductList();
+        productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
+        productList.fetchMenu();
 
-        buyer.showMenu();
-        seller.showMenu();
+
+        System.out.println("**********************************************");
 
         System.out.println("Iterator Method is implemented here");
 
@@ -63,10 +67,11 @@ public class PTBSMain {
 
         for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
             Product product = (Product) litr.next();
-            System.out.println("Product Name : " + product.fetchName()+ "   Product Type :" + product.fetchType());
+            System.out.println("Product Type :" + product.fetchType()+ "    Product Name : " + product.fetchName());
         }
 
+        System.out.println("**********************************************");
 
-        System.out.println("Iterator Method finishes");
+
     }
 }

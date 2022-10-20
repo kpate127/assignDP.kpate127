@@ -2,12 +2,12 @@ package System;
 
 public class Product {
 
-	private  String name;
 	private  String type;
+	private  String name;
 
-	public Product(String name, String type){
-		this.name = name;
+	public Product(String type, String name){
 		this.type = type;
+		this.name = name;
 	}
 
 	public String fetchName() {
