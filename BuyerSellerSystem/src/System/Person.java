@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public abstract class Person {
 
-	private ProductMenu theProductMenu;
+	ProductMenu theProductMenu;
 
 	public Person(ProductMenu theProductMenu)
 	{
@@ -31,4 +31,7 @@ public abstract class Person {
 
 	public abstract ProductMenu createProductMenu();
 
+	public void setTheProductMenu(ProductMenu theProductMenu) {
+		this.theProductMenu = theProductMenu;
+	}
 }

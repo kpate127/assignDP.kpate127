@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.logging.Handler;
 
 import System.Facade;
@@ -8,15 +9,18 @@ import System.*;
 public class PTBSMain {
     public static void main(String[] args) throws IOException {
 
+        Scanner scan = new Scanner(System.in);
+
         ClassProductList classProductList = new ClassProductList();
         ClassProductList productList = new ClassProductList();
         ProductMenuFactory productMenuFactory = new ProductMenuFactory();
 
-        System.out.println("Facade Pattern is implemented here");
+//      Facade Pattern is implemented here
 
         FileHandler handler = new FileHandler();
         handler.addBuyerDetails("BuyerSellerSystem/resources/BuyerInfo.txt");
         handler.addSellerDetails("BuyerSellerSystem/resources/SellerInfo.txt");
+        handler.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
         handler.showBuyers();
         handler.showSeller();
         Facade facade = new Facade(handler);
@@ -25,37 +29,65 @@ public class PTBSMain {
             userType = facade.login();
         }
 
+
+//        Bridge Pattern is implemented here
+
         if (userType == 0) {
             Buyer buyer = new Buyer();
-            buyer.showMenu();
-            buyer.createProductMenu();
+            System.out.println("Select 0 for Produce OR 1 for Meat");
+            String foodType = scan.nextLine();
+
+            if(foodType.equals("0"))
+            {
+                Person p = PersonFactory.fetchPerson("BUYERS");
+                p.setTheProductMenu(new ProduceProductMenu());
+                p.showMenu();
+            }
+            else if(foodType.equals("1"))
+            {
+                Person p = PersonFactory.fetchPerson("BUYERS");
+                p.setTheProductMenu(new MeatProductMenu());
+                p.showMenu();
+            }
+
         } else if (userType == 1) {
             Seller seller = new Seller();
-            seller.showMenu();
-            seller.createProductMenu();
+            System.out.println("Select 0 for Produce OR 1 for Meat");
+            String foodType = scan.nextLine();
+
+            if(foodType.equals("0"))
+            {
+                Person p = PersonFactory.fetchPerson("BUYERS");
+                p.setTheProductMenu(new ProduceProductMenu());
+                p.showMenu();
+            }
+            else if(foodType.equals("1"))
+            {
+                Person p = PersonFactory.fetchPerson("BUYERS");
+                p.setTheProductMenu(new MeatProductMenu());
+                p.showMenu();
+            }
         }
 
 
-        System.out.println("<<<<<<<<<<--------------------------------------->>>>>>>>>>>");
+        System.out.println("\n<<<<<<<<<--------------------------------------->>>>>>>>>>>\n");
 
-
-        System.out.println("************************************************************");
 //      Bridge Pattern is implemented here
 
-        productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
-        productList.showfetchMenu();
+        productList.fetchAllProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
+        productList.showAllProductMenu();
 
 
-        System.out.println("************************************************************");
+        System.out.println("\n************************************************************\n");
+
 //      Iterator Method is implemented here
-
 
         for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
             Product product = (Product) litr.next();
             System.out.println("Product Type :" + product.fetchType()+ "    Product Name : " + product.fetchName());
         }
 
-        System.out.println("************************************************************");
+        System.out.println("\n************************************************************\n");
 
         ProductMenu productMenu1 = productMenuFactory.fetchMenu("PRODUCE");
         productMenu1.showMenu();

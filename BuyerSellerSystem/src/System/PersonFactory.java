@@ -2,16 +2,16 @@ package System;
 
 public class PersonFactory {
 
-    public Person fetchMenu(String userType){
+    public static Person fetchPerson(String userType){
 
         if(userType == null){
             return null;
         }
-        if(userType.equalsIgnoreCase("Buyers")){
-            return new Buyer("Vivek", "1111");
+        if(userType.equalsIgnoreCase("BUYERS")){
+            return new Buyer("tutu", "1111");
 
         }
-        else if(userType.equalsIgnoreCase("Sellers")){
+        else if(userType.equalsIgnoreCase("SELLERS")){
             return new Seller("Bhrugu", "2222");
         }
         return null;

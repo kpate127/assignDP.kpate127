@@ -9,8 +9,8 @@ import java.util.*;
 
 public class ClassProductList extends ArrayList {
 
-	public Product names[] = {new Product("Meat","Ham"), new Product("Meat","Turkey"),
-			new Product("Produce","Ginger"), new Product("Produce","Tomato") };
+	public Product names[] = {new Product("Meat","Pork"), new Product("Meat","Beef"),
+			new Product("Produce","Tomato"), new Product("Produce","Onion") };
 
 	public static java.util.ArrayList<String> meatProducts = new java.util.ArrayList<>();
 	public static java.util.ArrayList<String> produceProducts = new java.util.ArrayList<>();
@@ -19,7 +19,7 @@ public class ClassProductList extends ArrayList {
 	public ClassProductList() {
 		this.pMenu = new HashMap<>();
 	}
-	public void fetchProductMenu(String path) {
+	public void fetchAllProductMenu(String path) {
 		try {
 			File myObj = new File(path);
 			Scanner myReader = new Scanner(myObj);
@@ -27,15 +27,6 @@ public class ClassProductList extends ArrayList {
 				String data = myReader.nextLine();
 				String[] pInfo = data.split(":");
 				pMenu.put(pInfo[1], pInfo[0]);
-
-				if(pInfo[0].equals("Meat")) {
-
-					meatProducts.add(pInfo[1]);
-				}
-				else if(pInfo[0].equals("Produce")) {
-
-					produceProducts.add(pInfo[1]);
-				}
 
 			}
 			myReader.close();
@@ -45,7 +36,7 @@ public class ClassProductList extends ArrayList {
 		}
 	}
 
-	public void showfetchMenu() {
+	public void showAllProductMenu() {
 		for(String itr: pMenu.keySet()) {
 			System.out.println(itr + " : " + pMenu.get(itr));
 		}
@@ -104,6 +95,11 @@ public class ClassProductList extends ArrayList {
 	private Product product;
 
 	private ProductIterator productIterator;
+
+	public void print()
+	{
+
+	}
 
 
 }

@@ -21,10 +21,11 @@ public class Seller extends Person {
 	}
 
 	public void showMenu(){
-		System.out.println("-----------------------------------------------------------");
-		System.out.println("Menu For Seller Will Be Printed Here");
-		productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
-		productList.showfetchMenu();
+//		System.out.println("-----------------------------------------------------------");
+//		System.out.println("Menu For Seller Will Be Printed Here");
+//		productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
+//		productList.showfetchMenu();
+		theProductMenu.showMenu();
 
 
 	}
