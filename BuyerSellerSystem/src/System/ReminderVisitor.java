@@ -16,6 +16,19 @@ public class ReminderVisitor extends NodeVisitor {
 
 	public void visitFacade(Facade facade) {
 
+		// Visitor Pattern
+//		for (String product: ClassProductList.produceProducts) {
+//			System.out.println(product);
+//		}
+//		for (String product: ClassProductList.meatProducts) {
+//			System.out.println(product);
+		for (String product: FileHandler.produceProducts) {
+			System.out.println(product);
+		}
+		for (String product: FileHandler.meatProducts) {
+			System.out.println(product);
+		}
+
 	}
 
 }

@@ -30,7 +30,7 @@ public class PTBSMain {
         }
 
 
-//        Bridge Pattern is implemented here
+//        Factory Design Pattern is implemented here
 
         if (userType == 0) {
             Buyer buyer = new Buyer();
@@ -72,7 +72,7 @@ public class PTBSMain {
 
         System.out.println("\n<<<<<<<<<--------------------------------------->>>>>>>>>>>\n");
 
-//      Bridge Pattern is implemented here
+//      Bridge Design Pattern is implemented here
 
         productList.fetchAllProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
         productList.showAllProductMenu();
@@ -80,7 +80,7 @@ public class PTBSMain {
 
         System.out.println("\n************************************************************\n");
 
-//      Iterator Method is implemented here
+//      Iterator Design pattern is implemented here
 
         for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
             Product product = (Product) litr.next();
@@ -99,6 +99,23 @@ public class PTBSMain {
         productMenu2.showMenu();
         for(int i=0; i<ClassProductList.meatProducts.size();i++)
             System.out.println(ClassProductList.meatProducts.get(i));
+
+
+//        ClassProductList pL;
+//        System.ClassProductList.ProductIterator = new System.ClassProductList.ProductIterator(fileHandling.productList);
+//
+//        while(productIterator.hasNext()){
+//            Product pro = productIterator.Next();
+//            System.out.println(pro.getProductType()+"");
+//        }
+
+
+//        Visitor Design Pattern is implemented here
+        System.out.println("\n************************************************************\n");
+
+        ReminderVisitor visitor = new ReminderVisitor();
+        visitor.visitFacade(new Facade(new FileHandler()));
+
 
     }
 }
