@@ -5,6 +5,7 @@ public class Buyer extends Person {
 	private  String Username;
 	private  String Password;
 
+
 	public Buyer() {
 		super(null);
 	}
@@ -18,6 +19,7 @@ public class Buyer extends Person {
 
 	@Override
 	public void showMenu() {
+		System.out.println("-------------------------------------------------");
 		System.out.println("Menu For Buyer Will Be Printed Here");
 
 	}

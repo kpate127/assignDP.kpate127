@@ -8,6 +8,8 @@ import System.*;
 public class PTBSMain {
     public static void main(String[] args) throws IOException {
 
+        ClassProductList classProductList = new ClassProductList();
+
         System.out.println("Facade Pattern is implemented here");
 
         FileHandler handler = new FileHandler();
@@ -32,38 +34,39 @@ public class PTBSMain {
         }
 
 
-        System.out.println("**********************************************");
-
-        System.out.println("Factory Pattern is implemented here");
+        System.out.println("<<<<<<<<<<--------------------------------------->>>>>>>>>>>");
+//      Factory Pattern is implemented here
 
         ProductMenuFactory productMenuFactory = new ProductMenuFactory();
         ProductMenu productMenu1 = productMenuFactory.fetchMenu("PRODUCE");
         productMenu1.showMenu();
+        for(int i=0; i<ClassProductList.produceProducts.size();i++)
+            System.out.println(ClassProductList.produceProducts.get(i));
+
 
         ProductMenu productMenu2 = productMenuFactory.fetchMenu("MEAT");
         productMenu2.showMenu();
+        for(int i=0; i<ClassProductList.meatProducts.size();i++)
+            System.out.println(ClassProductList.meatProducts.get(i));
 
-        PersonFactory personFactory = new PersonFactory();
-        Person person1 = personFactory.fetchMenu("Buyers");
-        Person person2 = personFactory.fetchMenu("Sellers");
-        person1.showMenu();
-        person2.showMenu();
 
+//        PersonFactory personFactory = new PersonFactory();
+//        Person person1 = personFactory.fetchMenu("Buyers");
+//        person1.showMenu();
+//        Person person2 = personFactory.fetchMenu("Sellers");
+//        person2.showMenu();
 
         System.out.println("*********************************************");
-
-        System.out.println("Bridge Pattern is implemented here");
+//      Bridge Pattern is implemented here
 
         ClassProductList productList = new ClassProductList();
         productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
-        productList.fetchMenu();
+        productList.showfetchMenu();
 
 
         System.out.println("**********************************************");
+//      Iterator Method is implemented here
 
-        System.out.println("Iterator Method is implemented here");
-
-        ClassProductList classProductList = new ClassProductList();
 
         for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
             Product product = (Product) litr.next();
@@ -71,6 +74,7 @@ public class PTBSMain {
         }
 
         System.out.println("**********************************************");
+
 
 
     }

@@ -6,6 +6,7 @@ public class Seller extends Person {
 
 	private  String Username;
 	private  String Password;
+	ClassProductList sMenu = new ClassProductList();
 
 	public Seller() {
 		super(null);
@@ -19,6 +20,7 @@ public class Seller extends Person {
 	}
 
 	public void showMenu(){
+		System.out.println("-------------------------------------------------");
 		System.out.println("Menu For Seller Will Be Printer Here");
 
 	}

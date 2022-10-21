@@ -5,11 +5,15 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.*;
 
 public class ClassProductList extends ArrayList {
 
 	public Product names[] = {new Product("Meat","Ham"), new Product("Meat","Turkey"),
 			new Product("Produce","Ginger"), new Product("Produce","Tomato") };
+
+	public static java.util.ArrayList<String> meatProducts = new java.util.ArrayList<>();
+	public static java.util.ArrayList<String> produceProducts = new java.util.ArrayList<>();
 
 	Map<String, String> pMenu;
 	public ClassProductList() {
@@ -23,6 +27,16 @@ public class ClassProductList extends ArrayList {
 				String data = myReader.nextLine();
 				String[] pInfo = data.split(":");
 				pMenu.put(pInfo[1], pInfo[0]);
+
+				if(pInfo[0].equals("Meat")) {
+
+					meatProducts.add(pInfo[1]);
+				}
+				else if(pInfo[0].equals("Produce")) {
+
+					produceProducts.add(pInfo[1]);
+				}
+
 			}
 			myReader.close();
 		} catch (FileNotFoundException e) {
@@ -31,11 +45,12 @@ public class ClassProductList extends ArrayList {
 		}
 	}
 
-	public void fetchMenu() {
+	public void showfetchMenu() {
 		for(String itr: pMenu.keySet()) {
-			System.out.println(itr + " " + pMenu.get(itr));
+			System.out.println(itr + " : " + pMenu.get(itr));
 		}
 	}
+
 
 
 	public void accept(NodeVisitor visitor){
