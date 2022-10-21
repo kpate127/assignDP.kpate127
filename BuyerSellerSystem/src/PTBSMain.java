@@ -101,13 +101,7 @@ public class PTBSMain {
             System.out.println(ClassProductList.meatProducts.get(i));
 
 
-//        ClassProductList pL;
-//        System.ClassProductList.ProductIterator = new System.ClassProductList.ProductIterator(fileHandling.productList);
-//
-//        while(productIterator.hasNext()){
-//            Product pro = productIterator.Next();
-//            System.out.println(pro.getProductType()+"");
-//        }
+
 
 
 //        Visitor Design Pattern is implemented here

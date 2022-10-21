@@ -38,10 +38,6 @@ public class OfferingList extends ArrayList {
 
 		}
 
-//	private Trading trading;
-//
-//	private Offering[] Offering;
-//
-//	private OfferingIterator OfferingIterator;
+
 	}
 }

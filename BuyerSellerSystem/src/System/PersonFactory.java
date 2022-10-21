@@ -18,4 +18,3 @@ public class PersonFactory {
     }
 }
 
-// File -> Handler (List B, List S) -> Facade (handler) -> handler.B

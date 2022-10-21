@@ -78,15 +78,6 @@ public class ClassProductList extends ArrayList {
 
 		}
 
-        /*public String getProductName()
-        {
-            return names[pos].getProductName();
-        }
-
-        public String getProductType()
-        {
-            return names[pos].getProductType();
-   */
 }
 
 
