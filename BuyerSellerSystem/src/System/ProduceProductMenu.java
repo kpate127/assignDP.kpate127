@@ -7,7 +7,7 @@ public class ProduceProductMenu implements ProductMenu {
 	ArrayList<String> produceProducts = new ArrayList<>();
 	public void showMenu() {
 
-		System.out.println("----------------Produce Product Menu--------------------");
+		System.out.println("-------------------Produce Product Menu---------------------");
 	}
 
 	public void showAddButton() {

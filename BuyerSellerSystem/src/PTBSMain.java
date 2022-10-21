@@ -9,6 +9,8 @@ public class PTBSMain {
     public static void main(String[] args) throws IOException {
 
         ClassProductList classProductList = new ClassProductList();
+        ClassProductList productList = new ClassProductList();
+        ProductMenuFactory productMenuFactory = new ProductMenuFactory();
 
         System.out.println("Facade Pattern is implemented here");
 
@@ -35,9 +37,26 @@ public class PTBSMain {
 
 
         System.out.println("<<<<<<<<<<--------------------------------------->>>>>>>>>>>");
-//      Factory Pattern is implemented here
 
-        ProductMenuFactory productMenuFactory = new ProductMenuFactory();
+
+        System.out.println("************************************************************");
+//      Bridge Pattern is implemented here
+
+        productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
+        productList.showfetchMenu();
+
+
+        System.out.println("************************************************************");
+//      Iterator Method is implemented here
+
+
+        for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
+            Product product = (Product) litr.next();
+            System.out.println("Product Type :" + product.fetchType()+ "    Product Name : " + product.fetchName());
+        }
+
+        System.out.println("************************************************************");
+
         ProductMenu productMenu1 = productMenuFactory.fetchMenu("PRODUCE");
         productMenu1.showMenu();
         for(int i=0; i<ClassProductList.produceProducts.size();i++)
@@ -48,34 +67,6 @@ public class PTBSMain {
         productMenu2.showMenu();
         for(int i=0; i<ClassProductList.meatProducts.size();i++)
             System.out.println(ClassProductList.meatProducts.get(i));
-
-
-//        PersonFactory personFactory = new PersonFactory();
-//        Person person1 = personFactory.fetchMenu("Buyers");
-//        person1.showMenu();
-//        Person person2 = personFactory.fetchMenu("Sellers");
-//        person2.showMenu();
-
-        System.out.println("*********************************************");
-//      Bridge Pattern is implemented here
-
-        ClassProductList productList = new ClassProductList();
-        productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
-        productList.showfetchMenu();
-
-
-        System.out.println("**********************************************");
-//      Iterator Method is implemented here
-
-
-        for (ListIterator litr = classProductList.getListIterator(); litr.hasNext(); ) {
-            Product product = (Product) litr.next();
-            System.out.println("Product Type :" + product.fetchType()+ "    Product Name : " + product.fetchName());
-        }
-
-        System.out.println("**********************************************");
-
-
 
     }
 }

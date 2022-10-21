@@ -5,7 +5,7 @@ public class MeatProductMenu implements ProductMenu {
 
 	public void showMenu() {
 
-		System.out.println("----------Meat product Menu-----------");
+		System.out.println("---------------------Meat Product Menu----------------------");
 	}
 
 	public void showAddButton() {

@@ -5,6 +5,7 @@ public class Buyer extends Person {
 	private  String Username;
 	private  String Password;
 
+	ClassProductList productList = new ClassProductList();
 
 	public Buyer() {
 		super(null);
@@ -19,8 +20,11 @@ public class Buyer extends Person {
 
 	@Override
 	public void showMenu() {
-		System.out.println("-------------------------------------------------");
+		System.out.println("-----------------------------------------------------------");
 		System.out.println("Menu For Buyer Will Be Printed Here");
+		productList.fetchProductMenu("BuyerSellerSystem/resources/ProductInfo.txt");
+		productList.showfetchMenu();
+
 
 	}
 	@Override
